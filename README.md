@@ -48,5 +48,8 @@ Study Notion is an education e-commerce website built with the MERN stack (Mongo
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/study-notion.git
-   cd study-notion
+   git clone https://github.com/Satyaaam/studynotion.git
+
+2. Go to the directory
+   ```bash
+   cd studynotion
