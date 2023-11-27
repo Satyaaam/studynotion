@@ -6,8 +6,8 @@ import HighlightText from './HighlightText';
 
 const InstructorSection = () => {
   return (
-    <div className=''>
-        <div className="flex flex-row  lg:flex-row gap-20 items-center">
+    <div>
+        <div className="flex flex-col lg:flex-row gap-20 items-center">
           <div className="lg:w-[50%]">
             <img
               src={Instructor}
@@ -16,12 +16,12 @@ const InstructorSection = () => {
             />
           </div>
           <div className="lg:w-[50%] flex gap-10 flex-col">
-            <h1 className="lg:w-[50%] text-white text-4xl font-semibold ">
+            <h1 className="lg:w-[50%] text-4xl font-semibold ">
               Become an
               <HighlightText text={"instructor"} />
             </h1>
 
-            <p className="font-medium text-[18px] text-justify w-[90%] text-richblack-300">
+            <p className="font-medium text-[16px] text-justify w-[90%] text-richblack-300">
               Instructors from around the world teach millions of students on
               StudyNotion. We provide the tools and skills to teach what you
               love.

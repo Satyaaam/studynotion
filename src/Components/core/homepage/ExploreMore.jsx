@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import { HomePageExplore } from "../../../data/homepage-explore";
-import HighLightText from "./HighlightText";
 import CourseCard from "./CourseCard";
+import HighlightText from "./HighlightText";
 
-const tabsName = ["Free", "New to coding", "Most popular", "Skills paths"];
+const tabsName = [
+  "Free",
+  "New to coding",
+  "Most popular",
+  "Skills paths",
+  "Career paths",
+];
 
 const ExploreMore = () => {
   const [currentTab, setCurrentTab] = useState(tabsName[0]);
@@ -18,42 +24,50 @@ const ExploreMore = () => {
     setCourses(result[0].courses);
     setCurrentCard(result[0].courses[0].heading);
   };
+
   return (
     <div>
-      <div className="text-4xl text-center font-semibold">
-        Unlock the <HighLightText text="Power of Code" />
+      {/* Explore more section */}
+      <div>
+        <div className="text-4xl font-semibold text-center my-10">
+          Unlock the
+          <HighlightText text={"Power of Code"} />
+          <p className="text-center text-richblack-300 text-lg font-semibold mt-1">
+            Learn to Build Anything You Can Imagine
+          </p>
+        </div>
       </div>
-      <p className="text-center text-richblack-300 text-lg mt-4 font-semibold">
-        Learn to build anything you can imagine.
-      </p>
-      <div className="flex gap-7 items-center mt-5 flex-row h-[70px] w-fit mx-auto  p-6 bg-richblack-800 rounded-lg">
-        {tabsName.map((element, index) => {
+
+      {/* Tabs Section */}
+      <div className="hidden lg:flex gap-5 -mt-5 mx-auto w-max bg-richblack-800 text-richblack-200 p-1 rounded-full font-medium drop-shadow-[0_1.5px_rgba(255,255,255,0.25)]">
+        {tabsName.map((ele, index) => {
           return (
             <div
-              key={index}
-              onClick={() => setMyCards(element)}
-              className={`text-[16px] h-[30px] flex items-center justify-center  ${
-                currentTab === element
+              className={` text-[16px] flex flex-row items-center gap-2 ${
+                currentTab === ele
                   ? "bg-richblack-900 text-richblack-5 font-medium"
                   : "text-richblack-200"
-              } rounded-lg transition-all duration-200 cursor-pointer hover:bg-richblack-900 hover:text-richblack-5 px-7 py-7`}
+              } px-7 py-[7px] rounded-full transition-all duration-200 cursor-pointer hover:bg-richblack-900 hover:text-richblack-5`}
+              key={index}
+              onClick={() => setMyCards(ele)}
             >
-              {element}
+              {ele}
             </div>
           );
         })}
       </div>
-      {/* <div className="lg:h-[150px]"></div> */}
-      <div className="flex gap-6">
-        {courses.map((element, index) => {
+      <div className="hidden lg:block lg:h-[200px]"></div>
+
+      {/* Cards Group */}
+      <div className="lg:absolute gap-10 justify-center lg:gap-0 flex lg:justify-between flex-wrap w-full lg:bottom-[0] lg:left-[50%] lg:translate-x-[-50%] lg:translate-y-[50%] text-black lg:mb-0 mb-7 lg:px-0 px-3">
+        {courses.map((ele, index) => {
           return (
-            <div key={index} className="mt-[50px]">
-              <CourseCard
-                cardData={element}
-                currentCard={currentCard}
-                setCurrentCard={setCurrentCard}
-              />
-            </div>
+            <CourseCard
+              key={index}
+              cardData={ele}
+              currentCard={currentCard}
+              setCurrentCard={setCurrentCard}
+            />
           );
         })}
       </div>
